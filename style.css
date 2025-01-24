@@ -1,0 +1,183 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffe4e1, #ffcccb);
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent overflow except for the memories section */
+}
+
+h1 {
+    color: #ff4081;
+    margin-top: 20px;
+    animation: fade-in 2s ease-in-out;
+}
+
+h2 {
+    color: #ff669a;
+    animation: fade-in 3s ease-in-out;
+}
+
+#main {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Scrollable Memories Section */
+#memories-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 10px;
+    border: 2px solid #ffcccb;
+    border-radius: 15px;
+    background: rgba(255, 240, 245, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#memories-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+#memories-container::-webkit-scrollbar-thumb {
+    background: #ff669a;
+    border-radius: 5px;
+}
+
+#memories-container::-webkit-scrollbar-track {
+    background: #ffe4e1;
+}
+
+.memory {
+    margin: 10px auto;
+    background: #ffeff5;
+    padding: 15px;
+    border-radius: 15px;
+    max-width: 600px;
+    text-align: left;
+    cursor: pointer;
+    font-size: 1.2em;
+    animation: fade-in-up 1s ease-in-out forwards;
+    opacity: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.memory:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* Popup for Memory Details */
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 10;
+    text-align: center;
+}
+
+#popup img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+#popup-message {
+    font-size: 1.3em;
+    color: #ff4081;
+}
+
+/* Floating Balloons */
+#balloons-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.balloon {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background: url('img/heart-balloon.svg') no-repeat center / contain;
+    animation: float-up 10s linear infinite;
+}
+
+/* Keyframes */
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float-up {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-100vh); }
+}
+
+#play-music {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffb6c1;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+#play-music:hover {
+    transform: scale(1.1);
+    background-color: #ff85a2;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #ff669a;
+    top: 0;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+#gift-box {
+    position: fixed;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
